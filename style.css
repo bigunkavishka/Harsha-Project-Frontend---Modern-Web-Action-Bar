@@ -1,4 +1,4 @@
- * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,22 +8,23 @@
 body {
     background-color: #f4f7f6;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    flex-direction: column; /* බාර් සිරස් අතට පෙළගැස්වීමට */
+    align-items: center;    /* මැදට ගැනීමට */
+    gap: 40px;             /* බාර් අතර පරතරය */
+    padding: 50px 0;       /* ඉහළ සහ පහළ ඉඩ තැබීමට */
+    min-height: 100vh;
 }
 
 /* Profile Circle */
+/* Profile එක හැම බාර් එකකටම අයිති නිසා position: absolute අයින් කළා */
 .user-profile {
-    position: absolute;
-    top: 30px;
-    right: 30px;
     width: 45px;
     height: 45px;
     border-radius: 50%;
     border: 2px solid #000;
     overflow: hidden;
     cursor: pointer;
+    margin-bottom: 10px; /* බාර් එකට ඉහළින් තිබෙන ඉඩ */
 }
 
 .user-profile img {
@@ -114,4 +115,11 @@ button, .btn-upload {
 
 .show {
     display: block !important;
+}
+
+/* Wrapper - බාර් එක සහ ප්‍රොෆයිල් එක මැදට තබා ගැනීමට */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
