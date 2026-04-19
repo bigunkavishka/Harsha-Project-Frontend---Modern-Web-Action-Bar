@@ -24,72 +24,83 @@
     </nav>
 
     <main class="content">
-        <div class="action-wrapper">
-            <div class="action-bar">
-                <div class="dropdown-container">
-                    <button class="btn-show-more dropdown-trigger">
-                        medical claims<i class='bx bx-chevron-down'></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><i class='bx bx-file'></i> Reports</li>
-                        <li><i class='bx bx-history'></i> History</li>
-                        <li><i class='bx bx-cog'></i> Settings</li>
-                    </ul>
-                </div>
-                <div class="divider"></div>
-                <div class="upload-container">
-                    <input type="file" class="file-input-field" hidden>
-                    <button class="btn-upload">
-                        <i class='bx bx-cloud-upload'></i> Upload
-                    </button>
-                </div>
-            </div>
-        </div>
 
-        <div class="action-wrapper">
-            <div class="action-bar">
-                <div class="dropdown-container">
-                    <button class="btn-show-more dropdown-trigger">
-                        vehicle claims <i class='bx bx-chevron-down'></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><i class='bx bx-file'></i> Reports</li>
-                        <li><i class='bx bx-history'></i> History</li>
-                        <li><i class='bx bx-cog'></i> Settings</li>
-                    </ul>
-                </div>
-                <div class="divider"></div>
-                <div class="upload-container">
-                    <input type="file" class="file-input-field" hidden>
-                    <button class="btn-upload">
-                        <i class='bx bx-cloud-upload'></i> Upload
-                    </button>
-                </div>
-            </div>
+  <div class="claim-card">
+    <input type="file" id="input-medical" hidden multiple accept=".pdf,.doc,.docx">
+    <div class="claim-header" onclick="togglePanel('medical')">
+      <div class="claim-icon" style="background:#EFF6FF;"></div>
+      <span class="claim-title">Medical Claims</span>
+      <span class="claim-badge badge-blue">Active</span>
+      <div class="right-actions">
+        <button class="btn-upload" onclick="event.stopPropagation();triggerUpload('medical')">
+          <i class='bx bx-cloud-upload'></i> Upload
+        </button>
+        <button class="arrow-btn" id="arrow-medical" onclick="event.stopPropagation();togglePanel('medical')">
+          <i class='bx bx-chevron-down'></i>
+        </button>
+      </div>
+    </div>
+    <div class="dropdown-panel" id="panel-medical">
+      <div class="files-section">
+        <div class="files-title">Uploaded Documents</div>
+        <div id="files-medical">
+          <div class="files-empty">No documents uploaded yet<br><small>PDF, DOC, DOCX only</small></div>
         </div>
+      </div>
+    </div>
+  </div>
 
-         <div class="action-wrapper">
-            <div class="action-bar">
-                <div class="dropdown-container">
-                    <button class="btn-show-more dropdown-trigger">
-                        travel claims <i class='bx bx-chevron-down'></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><i class='bx bx-file'></i> Reports</li>
-                        <li><i class='bx bx-history'></i> History</li>
-                        <li><i class='bx bx-cog'></i> Settings</li>
-                    </ul>
-                </div>
-                <div class="divider"></div>
-                <div class="upload-container">
-                    <input type="file" class="file-input-field" hidden>
-                    <button class="btn-upload">
-                        <i class='bx bx-cloud-upload'></i> Upload
-                    </button>
-                </div>
-            </div>
+  <div class="claim-card">
+    <input type="file" id="input-vehicle" hidden multiple accept=".pdf,.doc,.docx">
+    <div class="claim-header" onclick="togglePanel('vehicle')">
+      <div class="claim-icon" style="background:#F0FDF4;"></div>
+      <span class="claim-title">Vehicle Claims</span>
+      <span class="claim-badge badge-green">Active</span>
+      <div class="right-actions">
+        <button class="btn-upload" onclick="event.stopPropagation();triggerUpload('vehicle')">
+          <i class='bx bx-cloud-upload'></i> Upload
+        </button>
+        <button class="arrow-btn" id="arrow-vehicle" onclick="event.stopPropagation();togglePanel('vehicle')">
+          <i class='bx bx-chevron-down'></i>
+        </button>
+      </div>
+    </div>
+    <div class="dropdown-panel" id="panel-vehicle">
+      <div class="files-section">
+        <div class="files-title">Uploaded Documents</div>
+        <div id="files-vehicle">
+          <div class="files-empty">No documents uploaded yet<br><small>PDF, DOC, DOCX only</small></div>
         </div>
-    </main>
+      </div>
+    </div>
+  </div>
+
+  <div class="claim-card">
+    <input type="file" id="input-travel" hidden multiple accept=".pdf,.doc,.docx">
+    <div class="claim-header" onclick="togglePanel('travel')">
+      <div class="claim-icon" style="background:#FFF7ED;"></div>
+      <span class="claim-title">Travel Claims</span>
+      <span class="claim-badge badge-amber">Pending</span>
+      <div class="right-actions">
+        <button class="btn-upload" onclick="event.stopPropagation();triggerUpload('travel')">
+          <i class='bx bx-cloud-upload'></i> Upload
+        </button>
+        <button class="arrow-btn" id="arrow-travel" onclick="event.stopPropagation();togglePanel('travel')">
+          <i class='bx bx-chevron-down'></i>
+        </button>
+      </div>
+    </div>
+    <div class="dropdown-panel" id="panel-travel">
+      <div class="files-section">
+        <div class="files-title">Uploaded Documents</div>
+        <div id="files-travel">
+          <div class="files-empty">No documents uploaded yet<br><small>PDF, DOC, DOCX only</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
 
     <script src="script.js"></script>
 </body>
