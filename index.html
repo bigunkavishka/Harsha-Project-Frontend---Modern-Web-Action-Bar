@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Action Bar</title>
+    <title>Professional Claims Portal</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -12,7 +12,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="policy-section">
-                <span class="policy-label">Policy No:</span>
+                <span class="policy-label">POLICY NO:</span>
                 <span class="policy-no">123456789012</span>
             </div>
             <div class="user-section">
@@ -24,83 +24,75 @@
     </nav>
 
     <main class="content">
-
-  <div class="claim-card">
-    <input type="file" id="input-medical" hidden multiple accept=".pdf,.doc,.docx">
-    <div class="claim-header" onclick="togglePanel('medical')">
-      <div class="claim-icon" style="background:#EFF6FF;">🏥</div>
-      <span class="claim-title">Medical Claims</span>
-      <span class="claim-badge badge-blue">Active</span>
-      <div class="right-actions">
-        <button class="btn-upload" onclick="event.stopPropagation();triggerUpload('medical')">
-          <i class='bx bx-cloud-upload'></i> Upload
-        </button>
-        <button class="arrow-btn" id="arrow-medical" onclick="event.stopPropagation();togglePanel('medical')">
-          <i class='bx bx-chevron-down'></i>
-        </button>
-      </div>
-    </div>
-    <div class="dropdown-panel" id="panel-medical">
-      <div class="files-section">
-        <div class="files-title">Uploaded Documents</div>
-        <div id="files-medical">
-          <div class="files-empty">No documents uploaded yet<br><small>PDF, DOC, DOCX only</small></div>
+        <div class="claim-card">
+            <input type="file" id="input-medical" hidden multiple accept=".pdf,.doc,.docx">
+            <div class="claim-header" onclick="togglePanel('medical')">
+                <div class="claim-icon" style="background:#EFF6FF;">🏥</div>
+                <span class="claim-title">Medical Claims</span>
+                <span class="claim-badge badge-blue">Active</span>
+                <div class="right-actions">
+                    <button class="btn-upload" onclick="event.stopPropagation();triggerUpload('medical')">
+                        <i class='bx bx-cloud-upload'></i> Upload
+                    </button>
+                    <button class="arrow-btn" id="arrow-medical">
+                        <i class='bx bx-chevron-down'></i>
+                    </button>
+                </div>
+            </div>
+            <div class="dropdown-panel" id="panel-medical">
+                <div class="files-section">
+                    <div class="files-title">Uploaded Documents</div>
+                    <div id="files-medical"></div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="claim-card">
-    <input type="file" id="input-vehicle" hidden multiple accept=".pdf,.doc,.docx">
-    <div class="claim-header" onclick="togglePanel('vehicle')">
-      <div class="claim-icon" style="background:#F0FDF4;">🚗</div>
-      <span class="claim-title">Vehicle Claims</span>
-      <span class="claim-badge badge-green">Active</span>
-      <div class="right-actions">
-        <button class="btn-upload" onclick="event.stopPropagation();triggerUpload('vehicle')">
-          <i class='bx bx-cloud-upload'></i> Upload
-        </button>
-        <button class="arrow-btn" id="arrow-vehicle" onclick="event.stopPropagation();togglePanel('vehicle')">
-          <i class='bx bx-chevron-down'></i>
-        </button>
-      </div>
-    </div>
-    <div class="dropdown-panel" id="panel-vehicle">
-      <div class="files-section">
-        <div class="files-title">Uploaded Documents</div>
-        <div id="files-vehicle">
-          <div class="files-empty">No documents uploaded yet<br><small>PDF, DOC, DOCX only</small></div>
+        <div class="claim-card">
+            <input type="file" id="input-vehicle" hidden multiple accept=".pdf,.doc,.docx">
+            <div class="claim-header" onclick="togglePanel('vehicle')">
+                <div class="claim-icon" style="background:#F0FDF4;">🚗</div>
+                <span class="claim-title">Vehicle Claims</span>
+                <span class="claim-badge badge-green">Active</span>
+                <div class="right-actions">
+                    <button class="btn-upload" onclick="event.stopPropagation();triggerUpload('vehicle')">
+                        <i class='bx bx-cloud-upload'></i> Upload
+                    </button>
+                    <button class="arrow-btn" id="arrow-vehicle">
+                        <i class='bx bx-chevron-down'></i>
+                    </button>
+                </div>
+            </div>
+            <div class="dropdown-panel" id="panel-vehicle">
+                <div class="files-section">
+                    <div class="files-title">Uploaded Documents</div>
+                    <div id="files-vehicle"></div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="claim-card">
-    <input type="file" id="input-travel" hidden multiple accept=".pdf,.doc,.docx">
-    <div class="claim-header" onclick="togglePanel('travel')">
-      <div class="claim-icon" style="background:#FFF7ED;">✈️</div>
-      <span class="claim-title">Travel Claims</span>
-      <span class="claim-badge badge-amber">Pending</span>
-      <div class="right-actions">
-        <button class="btn-upload" onclick="event.stopPropagation();triggerUpload('travel')">
-          <i class='bx bx-cloud-upload'></i> Upload
-        </button>
-        <button class="arrow-btn" id="arrow-travel" onclick="event.stopPropagation();togglePanel('travel')">
-          <i class='bx bx-chevron-down'></i>
-        </button>
-      </div>
-    </div>
-    <div class="dropdown-panel" id="panel-travel">
-      <div class="files-section">
-        <div class="files-title">Uploaded Documents</div>
-        <div id="files-travel">
-          <div class="files-empty">No documents uploaded yet<br><small>PDF, DOC, DOCX only</small></div>
+        <div class="claim-card">
+            <input type="file" id="input-travel" hidden multiple accept=".pdf,.doc,.docx">
+            <div class="claim-header" onclick="togglePanel('travel')">
+                <div class="claim-icon" style="background:#FFF7ED;">✈️</div>
+                <span class="claim-title">Travel Claims</span>
+                <span class="claim-badge badge-amber">Pending</span>
+                <div class="right-actions">
+                    <button class="btn-upload" onclick="event.stopPropagation();triggerUpload('travel')">
+                        <i class='bx bx-cloud-upload'></i> Upload
+                    </button>
+                    <button class="arrow-btn" id="arrow-travel">
+                        <i class='bx bx-chevron-down'></i>
+                    </button>
+                </div>
+            </div>
+            <div class="dropdown-panel" id="panel-travel">
+                <div class="files-section">
+                    <div class="files-title">Uploaded Documents</div>
+                    <div id="files-travel"></div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-</main>
+    </main>
 
     <script src="script.js"></script>
 </body>

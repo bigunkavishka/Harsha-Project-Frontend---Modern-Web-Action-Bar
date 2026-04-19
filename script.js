@@ -11,20 +11,27 @@ const fmt = (b) => {
 function renderFiles(id) {
     const container = document.getElementById(`files-${id}`);
     const files = fileStore[id];
-    
+
     if (files.length === 0) {
-        container.innerHTML = `<div class="files-empty">No documents uploaded yet<br><small>Supported: PDF, DOC, DOCX</small></div>`;
+        container.innerHTML = `<div class="files-empty">No documents uploaded yet<br><small>PDF, DOC, DOCX ONLY</small></div>`;
         return;
     }
 
     container.innerHTML = files.map((f, i) => `
         <div class="file-item">
-            <i class='bx bxs-file-pdf' style="font-size:28px;color:#EF4444;"></i>
+            <i class='bx bxs-file-pdf' style="font-size:26px;color:#EF4444;"></i>
             <div class="file-info">
                 <div class="file-name">${f.name}</div>
-                <div class="file-meta">${ext(f.name).toUpperCase().replace('.','')} • ${fmt(f.size)}</div>
+                <div class="file-meta">${ext(f.name).toUpperCase().replace('.', '')} • ${fmt(f.size)}</div>
             </div>
-            <button class="file-del" onclick="removeFile('${id}',${i})"><i class='bx bx-trash'></i></button>
+            <div class="file-actions">
+                <button class="file-btn btn-down" onclick="downloadFile(${i}, '${id}')">
+                    <i class='bx bx-download'></i>
+                </button>
+                <button class="file-btn btn-del" onclick="removeFile('${id}', ${i})">
+                    <i class='bx bx-trash'></i>
+                </button>
+            </div>
         </div>
     `).join('');
 }
@@ -34,12 +41,26 @@ function removeFile(id, i) {
     renderFiles(id);
 }
 
+function downloadFile(index, id) {
+    const file = fileStore[id][index];
+    if (!file) return;
+
+    const url = URL.createObjectURL(file);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = file.name;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
 function togglePanel(id) {
     const panel = document.getElementById(`panel-${id}`);
     const arrow = document.getElementById(`arrow-${id}`);
     const isOpen = panel.classList.contains('open');
 
-    // Close all other panels
+    // Close others
     document.querySelectorAll('.dropdown-panel').forEach(p => p.classList.remove('open'));
     document.querySelectorAll('.arrow-btn').forEach(a => a.classList.remove('open'));
 
@@ -53,10 +74,10 @@ function triggerUpload(id) {
     document.getElementById(`input-${id}`).click();
 }
 
-// Initialize listeners
+// Event Listeners
 ['medical', 'vehicle', 'travel'].forEach(id => {
     const input = document.getElementById(`input-${id}`);
-    input.addEventListener('change', function() {
+    input.addEventListener('change', function () {
         let blocked = [];
         Array.from(this.files).forEach(f => {
             if (ALLOWED_EXT.includes(ext(f.name))) {
@@ -71,17 +92,13 @@ function triggerUpload(id) {
         if (blocked.length) {
             const error = document.createElement('div');
             error.className = 'error-msg';
-            error.innerHTML = `⚠ Invalid format: ${blocked.join(', ')}`;
+            error.innerHTML = `⚠ Invalid format (PDF/DOC/DOCX only): ${blocked.join(', ')}`;
             document.getElementById(`files-${id}`).after(error);
-            setTimeout(() => error.remove(), 3000);
+            setTimeout(() => error.remove(), 4000);
         }
 
-        // Open panel automatically on upload
-        const panel = document.getElementById(`panel-${id}`);
-        const arrow = document.getElementById(`arrow-${id}`);
-        panel.classList.add('open');
-        arrow.classList.add('open');
-        
-        this.value = ''; // Reset input
+        document.getElementById(`panel-${id}`).classList.add('open');
+        document.getElementById(`arrow-${id}`).classList.add('open');
+        this.value = '';
     });
 });
