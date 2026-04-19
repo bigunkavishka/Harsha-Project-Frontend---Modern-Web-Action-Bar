@@ -3,104 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern-Web-Action-Bar</title>
-    <link rel="stylesheet" href="/style.css">
+    <title>Modern Action Bar</title>
+    <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
 
     <nav class="navbar">
-    <div class="policy-section">
-        <span class="policy-no">POL-123456789012</span> </div>
-
-    <div class="user-section">
-        <div class="user-profile">
-            <img src="https://via.placeholder.com/40" alt="User">
+        <div class="nav-container">
+            <div class="policy-section">
+                <span class="policy-label">Policy No:</span>
+                <span class="policy-no">123456789012</span>
+            </div>
+            <div class="user-section">
+                <div class="user-profile">
+                    <img src="/assets/images.png" alt="User">
+                </div>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-    <div class="wrapper">
-        <div class="action-bar">
-            
-            <div class="dropdown-wrapper">
-                <button class="btn-show-more" id="dropdownBtn">
-                    Show More <i class='bx bx-chevron-down'></i>
-                </button>
-                
-                <ul class="dropdown-list" id="dropdownList">
-                    <li><i class='bx bx-file'></i> Reports</li>
-                    <li><i class='bx bx-history'></i> History</li>
-                    <li><i class='bx bx-cog'></i> Settings</li>
-                </ul>
+    <main class="content">
+        <div class="action-wrapper">
+            <div class="action-bar">
+                <div class="dropdown-container">
+                    <button class="btn-show-more dropdown-trigger">
+                        medical claims<i class='bx bx-chevron-down'></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><i class='bx bx-file'></i> Reports</li>
+                        <li><i class='bx bx-history'></i> History</li>
+                        <li><i class='bx bx-cog'></i> Settings</li>
+                    </ul>
+                </div>
+                <div class="divider"></div>
+                <div class="upload-container">
+                    <input type="file" class="file-input-field" hidden>
+                    <button class="btn-upload">
+                        <i class='bx bx-cloud-upload'></i> Upload
+                    </button>
+                </div>
             </div>
-
-            <div class="divider"></div>
-
-            <div class="upload-wrapper">
-                <input type="file" id="fileInput" hidden>
-                <label for="fileInput" class="btn-upload">
-                    <i class='bx bx-cloud-upload'></i> Upload
-                </label>
-            </div>
-
         </div>
-    
 
-    <div class="wrapper">
-        <div class="action-bar">
-            
-            <div class="dropdown-wrapper">
-                <button class="btn-show-more" id="dropdownBtn">
-                    Show More <i class='bx bx-chevron-down'></i>
-                </button>
-                
-                <ul class="dropdown-list" id="dropdownList">
-                    <li><i class='bx bx-file'></i> Reports</li>
-                    <li><i class='bx bx-history'></i> History</li>
-                    <li><i class='bx bx-cog'></i> Settings</li>
-                </ul>
+        <div class="action-wrapper">
+            <div class="action-bar">
+                <div class="dropdown-container">
+                    <button class="btn-show-more dropdown-trigger">
+                        vehicle claims <i class='bx bx-chevron-down'></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><i class='bx bx-file'></i> Reports</li>
+                        <li><i class='bx bx-history'></i> History</li>
+                        <li><i class='bx bx-cog'></i> Settings</li>
+                    </ul>
+                </div>
+                <div class="divider"></div>
+                <div class="upload-container">
+                    <input type="file" class="file-input-field" hidden>
+                    <button class="btn-upload">
+                        <i class='bx bx-cloud-upload'></i> Upload
+                    </button>
+                </div>
             </div>
-
-            <div class="divider"></div>
-
-            <div class="upload-wrapper">
-                <input type="file" id="fileInput" hidden>
-                <label for="fileInput" class="btn-upload">
-                    <i class='bx bx-cloud-upload'></i> Upload
-                </label>
-            </div>
-
         </div>
-    </div>
-        
-    <div class="wrapper">
-        <div class="action-bar">
-            
-            <div class="dropdown-wrapper">
-                <button class="btn-show-more" id="dropdownBtn">
-                    Show More <i class='bx bx-chevron-down'></i>
-                </button>
-                
-                <ul class="dropdown-list" id="dropdownList">
-                    <li><i class='bx bx-file'></i> Reports</li>
-                    <li><i class='bx bx-history'></i> History</li>
-                    <li><i class='bx bx-cog'></i> Settings</li>
-                </ul>
+
+         <div class="action-wrapper">
+            <div class="action-bar">
+                <div class="dropdown-container">
+                    <button class="btn-show-more dropdown-trigger">
+                        travel claims <i class='bx bx-chevron-down'></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><i class='bx bx-file'></i> Reports</li>
+                        <li><i class='bx bx-history'></i> History</li>
+                        <li><i class='bx bx-cog'></i> Settings</li>
+                    </ul>
+                </div>
+                <div class="divider"></div>
+                <div class="upload-container">
+                    <input type="file" class="file-input-field" hidden>
+                    <button class="btn-upload">
+                        <i class='bx bx-cloud-upload'></i> Upload
+                    </button>
+                </div>
             </div>
-
-            <div class="divider"></div>
-
-            <div class="upload-wrapper">
-                <input type="file" id="fileInput" hidden>
-                <label for="fileInput" class="btn-upload">
-                    <i class='bx bx-cloud-upload'></i> Upload
-                </label>
-            </div>
-
         </div>
-    </div>
+    </main>
 
-    <script src="/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

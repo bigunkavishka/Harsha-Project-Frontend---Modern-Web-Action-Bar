@@ -1,3 +1,14 @@
+:root {
+    --primary-blue: #1E3A8A;
+    --bright-blue: #2563EB;
+    --hover-blue: #3B82F6;
+    --accent-blue: #93C5FD;
+    --bg-light: #F8FAFC;
+    --border-color: #E5E7EB;
+    --text-main: #111827;
+    --text-sub: #6B7280;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,120 +17,156 @@
 }
 
 body {
-    background-color: #f4f7f6;
-    display: flex;
-    flex-direction: column; /* බාර් සිරස් අතට පෙළගැස්වීමට */
-    align-items: center;    /* මැදට ගැනීමට */
-    gap: 40px;             /* බාර් අතර පරතරය */
-    padding: 50px 0;       /* ඉහළ සහ පහළ ඉඩ තැබීමට */
-    min-height: 100vh;
+    background-color: var(--bg-light);
+    color: var(--text-main);
 }
 
-/* Profile Circle */
-/* Profile එක හැම බාර් එකකටම අයිති නිසා position: absolute අයින් කළා */
+/* Navbar Styling */
+.navbar {
+    background-color: var(--primary-blue);
+    padding: 12px 0;
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.policy-label { color: var(--accent-blue); font-size: 13px; font-weight: 500; }
+.policy-no { color: #fff; font-weight: 600; margin-left: 8px; }
+
 .user-profile {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    border: 2px solid #000;
+    border: 2px solid var(--accent-blue);
     overflow: hidden;
     cursor: pointer;
-    margin-bottom: 10px; /* බාර් එකට ඉහළින් තිබෙන ඉඩ */
+    transition: 0.3s;
 }
 
-.user-profile img {
+.user-profile:hover { transform: scale(1.05); }
+.user-profile img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Content Area */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 60px 20px;
+}
+
+/* Action Wrapper */
+.action-wrapper {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 800px; /* පළල 800px දක්වා වැඩි කර ඇත */
 }
 
-/* Action Bar Container */
+/* Action Bar Styling */
 .action-bar {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
     display: flex;
     align-items: center;
-    background: #fff;
-    border: 1.5px solid #000;
-    border-radius: 12px;
-    padding: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    padding: 8px 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
-/* Buttons Base Style */
-button, .btn-upload {
-    padding: 10px 20px;
-    border: none;
+.dropdown-container { 
+    position: relative;
+    flex: 1; /* Dropdown එකට ඉතිරි ඉඩ ලබා දෙයි */
+}
+
+.btn-show-more {
     background: transparent;
-    cursor: pointer;
+    border: none;
+    color: var(--text-main);
     font-weight: 500;
     font-size: 14px;
+    padding: 10px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    transition: 0.2s;
+    text-transform: capitalize;
+}
+
+.btn-show-more:hover { background: var(--bg-light); color: var(--bright-blue); }
+
+.divider {
+    width: 1px;
+    height: 24px;
+    background: var(--border-color);
+    margin: 0 12px;
+}
+
+.upload-container {
+    display: flex;
+    align-items: center;
+}
+
+.btn-upload {
+    background-color: var(--bright-blue);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
     display: flex;
     align-items: center;
     gap: 8px;
     transition: 0.3s;
-    border-radius: 8px;
+    white-space: nowrap;
 }
 
-.btn-show-more:hover {
-    background: #f0f0f0;
+.btn-upload:hover { 
+    background-color: var(--hover-blue); 
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2); 
 }
 
-/* Divider */
-.divider {
-    width: 1.5px;
-    height: 25px;
-    background: #e0e0e0;
-    margin: 0 10px;
-}
-
-/* Upload Button Style */
-.btn-upload {
-    background: #000;
-    color: #fff;
-}
-
-.btn-upload:hover {
-    background: #333;
-}
-
-/* Dropdown Logic */
-.dropdown-wrapper {
-    position: relative;
-}
-
-.dropdown-list {
+/* Dropdown Menu */
+.dropdown-menu {
     position: absolute;
-    top: 55px;
+    top: calc(100% + 8px);
     left: 0;
     background: #fff;
-    border: 1.5px solid #000;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     list-style: none;
     width: 180px;
     display: none;
-    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     z-index: 100;
 }
 
-.dropdown-list li {
-    padding: 12px 15px;
+.dropdown-menu.active { 
+    display: block; 
+}
+
+.dropdown-menu li {
+    padding: 10px 16px;
     font-size: 14px;
+    color: var(--text-main);
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.dropdown-list li:hover {
-    background: #f4f4f4;
-}
-
-.show {
-    display: block !important;
-}
-
-/* Wrapper - බාර් එක සහ ප්‍රොෆයිල් එක මැදට තබා ගැනීමට */
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.dropdown-menu li:hover { 
+    background: var(--bg-light); 
+    color: var(--bright-blue); 
 }
